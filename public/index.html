@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>skull</title>
+
+  <link rel="stylesheet" type="text/css" href="styles/fonts.css">
+  <link rel="stylesheet" type="text/css" href="styles/skull.css">
+</head>
+<body>
+
+  <h1>Skull</h1>
+
+  <button id="loginBob">Login as Bob</button>
+  <button id="loginJohn">Login as John</button>
+  <button id="logout">Logout</button>
+  <button id="allUsers">Get all users</button>
+  <hr>
+  <users></users>
+  <message></message>
+
+
+  <!-- vendors -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/underscore/underscore-min.js"></script>
+  <script src="bower_components/backbone/backbone.js"></script>
+  <script src="bower_components/riot/riot+compiler.min.js"></script>
+  <script src="bower_components/showdown/compressed/showdown.min.js"></script>
+
+  <script src="js/browser.min.js"></script>
+  <script src="js/es6-module-loader.js"></script>
+
+  <script>
+    System.transpiler = 'babel';
+    System.import('index')
+      .then(function(module) {})
+      .catch(function (e) { console.error(e); });
+
+  </script>
+
+
+</body>
+</html>

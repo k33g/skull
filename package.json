@@ -1,0 +1,19 @@
+{
+  "name": "skull",
+  "version": "1.0.0",
+  "description": "skull application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@k33g_org",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^5.4.7",
+    "body-parser": "^1.12.3",
+    "es6-module-loader": "^0.16.6",
+    "express": "^4.12.3",
+    "jsonwebtoken": "^5.0.0",
+    "mongoose": "^4.0.2"
+  }
+}

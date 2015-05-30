@@ -1,0 +1,28 @@
+{
+  "name": "skull",
+  "version": "0.0.0",
+  "authors": [
+    "@k33g_org"
+  ],
+  "description": "skull",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/js/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3",
+    "backbone": "~1.1.2",
+    "riot": "~2.1.0",
+    "showdown": "~0.5.1"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4",
+    "underscore": "~1.8.3"
+  }
+}
