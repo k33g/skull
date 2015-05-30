@@ -1,11 +1,10 @@
-var express = require('express');
+import express from 'express';
 
-var addCrudRoutes = function (mongooseModel, controller) {
+export default function (mongooseModel, controller) {
 
-  controller.get('/', function (req, res, next) {
-    console.log("GET", req.originalUrl);
+  controller.get('/', (req, res, next) => {
     //console.log("req.originalUrl", req.originalUrl);
-    mongooseModel.find(function (err, models) {
+    mongooseModel.find((err, models) => {
       if (err) {
         var error = new Error('Error getting models.');
         error.statusCode = 500;
@@ -15,8 +14,8 @@ var addCrudRoutes = function (mongooseModel, controller) {
     });
   });
 
-  controller.post('/', function (req, res, next) {
-    console.log("POST", req.originalUrl, req.body);
+  controller.post('/', (req, res, next) => {
+    //console.log("POST", req.originalUrl, req.body);
     var model = new mongooseModel(req.body);
     model.save(function (err, model) {
       if (err) {
@@ -29,10 +28,9 @@ var addCrudRoutes = function (mongooseModel, controller) {
     });
   });
 
-  controller.get('/:id', function (req, res, next) {
-    console.log("GET", req.originalUrl, req.params.id);
-    //console.log("get", req.params.id)
-    mongooseModel.findOne({_id: req.params.id}, function (err, model) {
+  controller.get('/:id', (req, res, next) => {
+    //console.log("GET", req.originalUrl, req.params.id);
+    mongooseModel.findOne({_id: req.params.id}, (err, model) => {
       if (err) {
         var error = new Error('Error getting model.');
         error.statusCode = 500;
@@ -48,10 +46,9 @@ var addCrudRoutes = function (mongooseModel, controller) {
     });
   });
 
-  controller.put('/:id', function (req, res, next) {
-    console.log("PUT", req.originalUrl, req.params.id, req.body);
-    //console.log("put:req.originalUrl", req.originalUrl);
-    mongooseModel.findOneAndUpdate({_id: req.params.id}, req.body, function (err, model) {
+  controller.put('/:id', (req, res, next) => {
+    //console.log("PUT", req.originalUrl, req.params.id, req.body);
+    mongooseModel.findOneAndUpdate({_id: req.params.id}, req.body, (err, model) => {
 
       if (err) {
         var error = new Error('Error getting model for update.');
@@ -68,11 +65,11 @@ var addCrudRoutes = function (mongooseModel, controller) {
     });
   });
 
-  controller.delete('/:id', function (req, res, next) {
+  controller.delete('/:id', (req, res, next) => {
 
-    console.log("DELETE", req.originalUrl, req.params.id);
+    //console.log("DELETE", req.originalUrl, req.params.id);
 
-    mongooseModel.findOneAndRemove({_id: req.params.id}, function (err, model) {
+    mongooseModel.findOneAndRemove({_id: req.params.id}, (err, model) => {
 
       if (err) {
         var error = new Error('Error getting model for delete.');
@@ -92,5 +89,3 @@ var addCrudRoutes = function (mongooseModel, controller) {
 
   return controller;
 };
-
-module.exports = addCrudRoutes;
