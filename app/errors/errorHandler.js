@@ -11,8 +11,7 @@ export default function (err, req, res, next) {
 
   console.error('error', err);
 
-  res.status(err.statusCode || 500).send(err.message)
-  //res.status(err.statusCode || 500).json(err.message)
+  res.status(err.statusCode || 500).send(err.message);
 
 }
 

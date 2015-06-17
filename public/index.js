@@ -4,10 +4,16 @@
 
 let btnLoginBob = $("#loginBob")
   , btnLoginJohn = $("#loginJohn")
+  , btnLoginJane = $("#loginJane")
   , btnLogout = $("#logout")
   , btnAllUsers = $("#allUsers")
+  , btnOne = $("#one")
+  , btnTwo = $("#two")
+  , btnThree = $("#three")
+  , btnFour = $("#four")
   , usersList = $("users")
   , message = $("message");
+
 
 let login = (user, password) => {
   $.ajax({
@@ -46,6 +52,37 @@ let login = (user, password) => {
   })
 }
 
+let restCall = (route) => {
+  //$.get("api/sandbox/one").then(function(data){console.log(data)})
+  $.get(route)
+    .then((data) => {
+      message.html(data.yo)
+    })
+    .fail((err) => {
+      console.log(err.responseText, err.statusText, err.status)
+      message.html(`
+        ${err.responseText}<br>${err.statusText}<br>${err.status}
+      `)
+    })
+
+}
+
+btnOne.click(() => {
+  restCall("api/sandbox/one");
+});
+
+btnTwo.click(() => {
+  restCall("api/sandbox/two");
+});
+
+btnThree.click(() => {
+  restCall("api/sandbox/three");
+});
+
+btnFour.click(() => {
+  restCall("api/sandbox/four");
+});
+
 
 btnLoginBob.click(() => {
   login("bob", "morane");
@@ -53,6 +90,10 @@ btnLoginBob.click(() => {
 
 btnLoginJohn.click(() => {
   login("john", "doe");
+});
+
+btnLoginJane.click(() => {
+  login("jane", "doe");
 });
 
 btnLogout.click(() => {

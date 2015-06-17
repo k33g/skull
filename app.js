@@ -13,6 +13,8 @@ import usersCtrl from './app/features/users/controller';
 import authenticationCtrl from './app/features/users/authenticate';
 import setupCtrl from './app/_setup/setup'
 
+import sandBoxCtrl from './app/features/sandbox/controller';
+
 import Broker from './app/broker/simpleBroker'
 
 mongoose.connect(config.database);
@@ -27,6 +29,7 @@ app
   .use('/api/authenticate', authenticationCtrl)
   .use('/api/users', usersCtrl)
   .use('/api/setup', setupCtrl)
+  .use('/api/sandbox', sandBoxCtrl) // this is for tests
   .use(errorHandler)
   .listen(config.httpPort);
 
