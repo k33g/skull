@@ -10,6 +10,8 @@ import mongoose from 'mongoose';
 import errorHandler from './app/errors/errorHandler';
 
 import usersCtrl from './app/features/users/controller';
+import rolesCtrl from './app/features/roles/controller';
+
 import authenticationCtrl from './app/features/users/authenticate';
 import setupCtrl from './app/_setup/setup'
 
@@ -28,6 +30,7 @@ app
   .use(bodyParser.json())
   .use('/api/authenticate', authenticationCtrl)
   .use('/api/users', usersCtrl)
+  .use('/api/roles', rolesCtrl)
   .use('/api/setup', setupCtrl)
   .use('/api/sandbox', sandBoxCtrl) // this is for tests
   .use(errorHandler)

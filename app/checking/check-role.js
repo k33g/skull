@@ -29,7 +29,6 @@ function checkIfRouteIsProtected (routeName, callback) {
     } else {
       callback(err, false)
     }
-
   });
 }
 
@@ -76,7 +75,6 @@ export default function(req, res, next) {
           error.statusCode = 403;
           return next(error);
         }
-
         //next()
       })
 

@@ -1,7 +1,7 @@
 import express from 'express';
 import checkToken from '../../checking/check-token'
 import checkRole from '../../checking/check-role'
-import config from '../../../config';
+//import config from '../../../config';
 
 let controller = express.Router();
 
@@ -28,4 +28,5 @@ controller.get('/three', function (req, res) {
   return res.status(200).json({yo:'three'});
 });
 
-module.exports = controller;
+export default controller;
+
